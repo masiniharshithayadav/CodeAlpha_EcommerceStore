@@ -8,7 +8,7 @@ const navigate = useNavigate();
   const loginUser = async () => {
     try {
       const res = await axios.post(
-        "http://localhost:5001/api/users/login",
+        "https://codealpha-ecommerce-backend.onrender.com/api/users/login",
         {
           email,
           password,

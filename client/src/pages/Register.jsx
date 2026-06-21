@@ -9,7 +9,7 @@ function Register() {
   const registerUser = async () => {
     try {
       const res = await axios.post(
-        "http://localhost:5001/api/users/register",
+        "https://codealpha-ecommerce-backend.onrender.com/api/users/register",
         {
           name,
           email,

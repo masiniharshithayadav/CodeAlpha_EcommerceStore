@@ -19,7 +19,7 @@ function App() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5001/api/products")
+      .get("https://codealpha-ecommerce-backend.onrender.com/api/products")
       .then((res) => setProducts(res.data))
       .catch((err) => console.log(err));
   }, []);
