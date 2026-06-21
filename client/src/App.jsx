@@ -13,7 +13,6 @@ function App() {
   });
 
   const user = JSON.parse(localStorage.getItem("user"));
-
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("All");
@@ -48,7 +47,8 @@ function App() {
   return (
     <div style={{ padding: "20px" }}>
       <nav style={{ marginBottom: "20px" }}>
-        <Link to="/">Home</Link> |{" "}
+        <Link to="/">Home</Link>
+        {" | "}
         <Link to="/orders">My Orders</Link>
 
         {!user ? (
@@ -61,8 +61,8 @@ function App() {
         ) : (
           <>
             {" | "}
-<button
-  disabled={cart.length === 0}  onClick={() => {
+            <button
+              onClick={() => {
                 localStorage.removeItem("user");
                 localStorage.removeItem("token");
                 window.location.reload();
@@ -72,7 +72,6 @@ function App() {
                 background: "none",
                 color: "blue",
                 cursor: "pointer",
-opacity: cart.length === 0 ? 0.5 : 1,
               }}
             >
               Logout
@@ -90,15 +89,15 @@ opacity: cart.length === 0 ? 0.5 : 1,
           path="/"
           element={
             <>
-<h1
-  style={{
-    textAlign: "center",
-    color: "#007bff",
-    marginBottom: "20px",
-  }}
->
-  🛒 CodeAlpha Ecommerce Store
-</h1>
+              <h1
+                style={{
+                  textAlign: "center",
+                  color: "#007bff",
+                }}
+              >
+                🛒 CodeAlpha Ecommerce Store
+              </h1>
+
               <div
                 style={{
                   display: "flex",
@@ -107,10 +106,7 @@ opacity: cart.length === 0 ? 0.5 : 1,
                   marginBottom: "20px",
                 }}
               >
-                <h2>
-Cart 🛒 {cart.length} Items
-</h2>
-
+                <h2>Cart 🛒 {cart.length}</h2>
 
                 {user && (
                   <div>
@@ -122,13 +118,7 @@ Cart 🛒 {cart.length} Items
               <h3>Total: ₹{totalPrice}</h3>
 
               <div
-                  border: "1px solid #ddd",
-  padding: "15px",
-  width: "220px",
-  textAlign: "center",
-  borderRadius: "10px",
-  cursor: "pointer",
-}}style={{
+                style={{
                   border: "1px solid #ddd",
                   padding: "15px",
                   marginBottom: "20px",
@@ -275,9 +265,7 @@ Cart 🛒 {cart.length} Items
                     <div
                       key={product._id}
                       onClick={() =>
-                        setSelectedProduct(
-                          product
-                        )
+                        setSelectedProduct(product)
                       }
                       style={{
                         border:
@@ -297,15 +285,9 @@ Cart 🛒 {cart.length} Items
                       />
 
                       <h3>{product.name}</h3>
-                      <p>
-                        {product.description}
-                      </p>
-                      <h2>
-                        ₹{product.price}
-                      </h2>
-                      <p>
-                        {product.category}
-                      </p>
+                      <p>{product.description}</p>
+                      <h2>₹{product.price}</h2>
+                      <p>{product.category}</p>
 
                       <button
                         onClick={(e) => {
@@ -383,9 +365,7 @@ Cart 🛒 {cart.length} Items
 
                     <button
                       onClick={() =>
-                        setSelectedProduct(
-                          null
-                        )
+                        setSelectedProduct(null)
                       }
                     >
                       Close
